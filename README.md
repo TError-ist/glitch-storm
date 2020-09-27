@@ -1,3 +1,5 @@
+(Changed pinout and MCU settings to make it run on 5V 16Mhz Atmega32u4 Arduino Pro Micro Clones. Compiled in the Arduino IDE using the Sparkfun AVR Board Definitions; works well)
+
 # glitch-storm
 
 5 March 2020: Two new modes added:
