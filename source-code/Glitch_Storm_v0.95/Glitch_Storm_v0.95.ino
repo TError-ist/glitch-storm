@@ -1,19 +1,20 @@
-// Glitch Storm 0.7
+// Glitch Storm 0.95
 // CC By Sa Spherical Sound Society 2019
 // Heavy inspiration in Bytebeat (Viznut)
 // Some equations are empty. You can collaborate sending your new finding cool sounding ones to the repository
 // https://github.com/spherical-sound-society/glitch-storm
 //
+// Changed pinout and MCU settings to make it run on 5V 16Mhz Atmega32u4 Arduino Pro Micro Clones. Compiled in the Arduino IDE using the Sparkfun AVR Board Definitions; works well.
 
 #include <stdint.h>
 #include <avr/interrupt.h>
 #include <avr/io.h>
 #include <avr/pgmspace.h>
 
-#define ledPin   13
-#define speakerPin 11
-#define upButtonPin 2
-#define downButtonPin 4
+#define ledPin   17
+#define speakerPin 5
+#define upButtonPin 15
+#define downButtonPin 21
 #define progBit0Pin 7
 #define progBit1Pin 8
 #define progBit2Pin 9
