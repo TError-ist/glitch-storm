@@ -180,7 +180,7 @@ ISR(TIMER1_COMPA_vect) {
   }
 
 
-  OCR2A =  value;
+  OCR3A =  value;
   t += shift_A_Pot;
 
 
@@ -202,21 +202,21 @@ void initSound()
 {
   pinMode(speakerPin, OUTPUT);
 
-  ASSR &= ~(_BV(EXCLK) | _BV(AS2));
+//  ASSR &= ~(_BV(EXCLK) | _BV(AS2));
 
 
-  TCCR2A |= _BV(WGM21) | _BV(WGM20);
-  TCCR2B &= ~_BV(WGM22);
+  TCCR3A |= _BV(WGM31) | _BV(WGM30);
+  TCCR3B &= ~_BV(WGM32);
 
-  // Do non-inverting PWM on pin OC2A (p.155)
-  // On the Arduino this is pin 11.
-  TCCR2A = (TCCR2A | _BV(COM2A1)) & ~_BV(COM2A0);
-  TCCR2A &= ~(_BV(COM2B1) | _BV(COM2B0));
+  // Do non-inverting PWM on pin OC3A (p.155)
+  // On the Arduino this is pin 5.
+  TCCR3A = (TCCR3A | _BV(COM3A1)) & ~_BV(COM3A0);
+  TCCR3A &= ~(_BV(COM3B1) | _BV(COM3B0));
   // No prescaler (p.158)
-  TCCR2B = (TCCR2B & ~(_BV(CS12) | _BV(CS11))) | _BV(CS10);
+  TCCR3B = (TCCR3B & ~(_BV(CS32) | _BV(CS31))) | _BV(CS30);
 
   // Set initial pulse width to the first sample.
-  OCR2A = 0;
+  OCR3A = 0;
 
   // Set up Timer 1 to send a sample every interrupt.
   cli();
